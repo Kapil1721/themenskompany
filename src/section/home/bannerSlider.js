@@ -83,14 +83,21 @@ export default function SwiperSlider() {
         navigation={true}
         modules={[Autoplay, Navigation, Pagination]}
         className="mySwiper"
-        style={{
-          userSelect: "none",
-          webkitUserSelect: "none",
-          khtmlUserSelect: "none",
-          mozUserSelect: "none",
-          msUserSelect: "none",
-          oUserSelect: "none",
-        }}
+        style={
+          ({
+            userSelect: "none",
+            webkitUserSelect: "none",
+            khtmlUserSelect: "none",
+            mozUserSelect: "none",
+            msUserSelect: "none",
+            oUserSelect: "none",
+          },
+          !loaded && screenWidth < 1000
+            ? { height: "400px" }
+            : !loaded && screenWidth > 1000
+            ? { height: "760px" }
+            : {})
+        }
       >
         {(screenWidth < 1000 ? mobileSlider : silderData).map((slider) => (
           <SwiperSlide key={slider.id}>

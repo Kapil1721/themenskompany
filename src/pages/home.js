@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
-import { Row, Col } from "antd";
-import React, { useState } from "react";
+import { Row, Col, Skeleton } from "antd";
+import React, { useState, useEffect } from "react";
 import Index from "../components/productCard";
 
 import Stack from "../components/style/stack";
@@ -23,6 +23,8 @@ const Home = () => {
   const Navigate = useNavigate();
 
   const [state, setState] = useState([]);
+
+  const [loaded, setLoaded] = React.useState(false);
 
   useOnce(() => {
     productRandService().then((e) => {
@@ -47,7 +49,7 @@ const Home = () => {
 
       <div>
         <Row>
-          <SwiperSlider />
+          <SwiperSlider setLoaded={setLoaded} loaded={loaded} />
         </Row>
 
         <Row justify="center" style={{ marginTop: "40px" }}>
@@ -205,21 +207,36 @@ const Home = () => {
             >
               <Col>
                 <Stack>
-                  <Icon fontSize="40px" icon="ion:return-up-back" />
+                  <div>
+                    <img
+                      src="/images/7-days-return-policy.png"
+                      alt="Benefits On First Order"
+                    />
+                  </div>
                   <p className="sadsatyhlm">7-Days Return Policy</p>
                 </Stack>
               </Col>
 
               <Col>
                 <Stack>
-                  <Icon fontSize="40px" icon="ph:truck-light" />
+                  <div>
+                    <img
+                      src="/images/free-shipping.png"
+                      alt="Benefits On First Order"
+                    />
+                  </div>
                   <p className="sadsatyhlm">Free Shipping</p>
                 </Stack>
               </Col>
 
               <Col>
                 <Stack>
-                  <Icon fontSize="40px" icon="ion:gift-sharp" />
+                  <div>
+                    <img
+                      src="/images/benefits.png"
+                      alt="Benefits On First Order"
+                    />
+                  </div>
                   <p className="sadsatyhlm">Benefits On First Order</p>
                 </Stack>
               </Col>
