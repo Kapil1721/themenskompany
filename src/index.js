@@ -16,7 +16,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 if (module.hot) module.hot.accept("./routes");
 
 
-console.log("wwww")
+
 
 root.render(
   <React.StrictMode>

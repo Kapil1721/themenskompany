@@ -2576,6 +2576,30 @@ button.tooltip:hover {
   }
 }
 
+@media only screen and (max-width: 767px) {
+  .cutom_tetx {
+    font-size: 17px;
+    margin-left: -23px;
+    line-height: 19px;
+  }
+  .prv-btn {
+    margin-right: 6px;
+  }
+  .css-dev-only-do-not-override-sk7ap8 svg {
+    width: 20px;
+    height: 20px;
+  }
+  .main_image_button_holder .image_section {
+    height: 280px;
+  }
+  .css-dev-only-do-not-override-sk7ap8 {
+    z-index: 1;
+  }
+  .css-dev-only-do-not-override-sk7ap8 .ant-drawer-content-wrapper {
+    width: 100% !important;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .header_mian {
     padding: 30px 15px 30px;
@@ -2583,12 +2607,33 @@ button.tooltip:hover {
 
   .custom_button_holder .collar {
     top: 40px;
-    left: 218px;
+    left: 194px;
   }
 
   .custom_button_holder .pocket {
-    top: 123px;
-    left: 250px;
+    top: 116px;
+    left: 238px;
+  }
+  .custom_button_holder .placket {
+    top: 185px;
+    left: 196px;
+    position: absolute;
+  }
+  .custom_button_holder .Buttons {
+    top: 244px;
+    left: 194px;
+    position: absolute;
+  }
+  .custom_button_holder .seleves {
+    top: 316px;
+    left: 260px;
+    width: 150px;
+    position: absolute;
+  }
+  .custom_button_holder .back {
+    top: 382px;
+    left: 241px;
+    position: absolute;
   }
 
   #policy-container .sub-heading {
@@ -2718,34 +2763,37 @@ button.tooltip:hover {
   }
 
   .custom_button_holder .pocket {
-    top: 108px;
-    left: 200px;
+    top: 96px;
+    left: 185px;
   }
 
   .custom_button_holder .placket {
-    top: 169px;
-    left: 160px;
+    top: 140px;
+    left: 152px;
   }
 
   .custom_button_holder .Buttons {
-    top: 238px;
-    left: 160px;
+    top: 190px;
+    left: 150px;
   }
 
   .custom_button_holder .seleves {
-    top: 287px;
-    left: 177px;
+    top: 244px;
+    left: 203px;
     width: 140px;
   }
 
   .custom_button_holder .back {
-    top: 352px;
+    top: 302px;
     left: 180px;
     position: absolute;
   }
 
   .weddb__3jd {
     font-size: 20px;
+  }
+  .main_image_button_holder .image_section {
+    height: 340px;
   }
 }
 
@@ -2803,17 +2851,17 @@ button.tooltip:hover {
 
   .custom_button_holder .placket {
     top: 140px;
-    left: 130px;
+    left: 140px;
   }
 
   .custom_button_holder .Buttons {
     top: 180px;
-    left: 130px;
+    left: 140px;
   }
 
   .custom_button_holder .seleves {
-    top: 227px;
-    left: 147px;
+    top: 223px;
+    left: 183px;
     width: 140px;
   }
 
@@ -2822,4 +2870,38 @@ button.tooltip:hover {
     left: 180px;
     position: absolute;
   }
+  .main_image_button_holder .image_section {
+    height: 310px;
+  }
+  .css-dev-only-do-not-override-sk7ap8 .productcard .ant-card-body {
+    height: 84px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .custom_button_holder .placket {
+    top: 129px;
+    left: 135px;
+  }
+  .custom_button_holder .Buttons {
+    top: 170px;
+    left: 135px;
+  }
+  .custom_button_holder .seleves {
+    top: 211px;
+    left: 174px;
+    width: 140px;
+  }
+  .custom_button_holder .back {
+    top: 262px;
+    left: 172px;
+    position: absolute;
+  }
+}
+/* om sharma css */
+/* #showHeader {
+  width: 180px;
+} */
+:where(.css-dev-only-do-not-override-sk7ap8).ant-row {
+  z-index: 0;
 }
