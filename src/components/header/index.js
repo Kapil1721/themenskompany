@@ -76,7 +76,7 @@ const Index = () => {
           </Col>
 
           <Col xxl={4} xl={5} lg={7} md={3} sm={4} xs={4}>
-            <Logo />
+            <Logo hide={"hiddenHeadr"} show={"showHeader"} />
           </Col>
 
           <Col

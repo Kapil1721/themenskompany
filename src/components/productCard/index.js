@@ -359,30 +359,3 @@ const StyleCard = {
       "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
   },
 };
-
-// eslint-disable-next-line no-lone-blocks
-{
-  /* <Stack sx={StyleCard.card}>
-<Stack className="hover_able_card" sx={StyleCard.image}>
-  <Link to={PRODUCTDETAILS(data.id)}>
-    <img loading="lazy" src={PDC_IMAGE + data?.image} alt="sadadsa" />
-  </Link>
-
-  <Stack
-    onClick={() => setOpen(true)}
-    sx={StyleCard.quickView}
-    className="quick_view"
-  >
-    Quick View
-  </Stack>
-</Stack>
-
-<Stack className={"productCard"} sx={StyleCard.content}>
-  <Link to={PRODUCTDETAILS(data.id)}>
-    <h3>{data?.name}</h3>
-  </Link>
-
-  <p>₹ {data?.price}</p>
-</Stack>
-</Stack> */
-}

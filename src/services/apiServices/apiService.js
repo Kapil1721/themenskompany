@@ -82,6 +82,9 @@ export const orderService = (object) =>
 export const gteOrderService = (id) =>
   fetch("get", API_PATH + `checkout/order?id=${id}`, {}, {});
 
+export const orderMailer = (details) =>
+  fetch("post", API_PATH + `checkout/mglsss__`, { ...details }, {});
+
 export const cancelOrder = (id) =>
   fetch("post", API_PATH + `checkout/cancelOrder`, { ...id }, {});
 

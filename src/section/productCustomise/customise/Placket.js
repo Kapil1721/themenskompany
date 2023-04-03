@@ -29,6 +29,12 @@ const Placket = ({ setStyleCustomise, setCustomise, state }) => {
   useEffect(() => {
     document.getElementById("foote").style.display = "none";
 
+    let bll = document.getElementsByClassName("mmukbd");
+
+    for (var i = 0; i < bll.length; i++) {
+      bll[i].style.display = "none";
+    }
+
     productSectionCustomise(pid, "placket").then((el) => {
       if (el.status === 200) {
         setArray(el.data.data);
@@ -46,6 +52,13 @@ const Placket = ({ setStyleCustomise, setCustomise, state }) => {
         );
       }
     });
+
+    return () => {
+      document.getElementById("foote").style.display = "block";
+      for (var i = 0; i < bll.length; i++) {
+        bll[i].style.display = "";
+      }
+    };
   }, []);
 
   const saveHandler = async () => {

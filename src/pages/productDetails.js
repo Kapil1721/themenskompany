@@ -282,13 +282,13 @@ const ProductDetails = () => {
 
       <Divider />
 
-      <Row justify="center" style={{ marginTop: "70px" }}>
+      <Row justify="center" style={{ marginTop: "70px" }} className="mmukbd">
         <Col xxl={17} xl={18} lg={18} md={20} sm={22} xs={23}>
           <div className="lasd">You May Also Like</div>
         </Col>
       </Row>
 
-      <Row justify="center">
+      <Row justify="center" className="mmukbd">
         <Col xxl={17} xl={18} lg={18} md={20} sm={22} xs={23}>
           <Row justify="start" style={{ padding: "50px 0", margin: "auto" }}>
             <Col span={24} style={{ position: "relative" }}>
@@ -315,7 +315,7 @@ const ProductDetails = () => {
         </Col>
       </Row>
 
-      <Row justify="center">
+      <Row justify="center" className="mmukbd">
         <Col xxl={17} xl={18} lg={18} md={20} sm={22} xs={23}>
           <Row justify="start" style={{ padding: "10px 0 90px 0" }}>
             <Col span={24} style={{ position: "relative" }}>
@@ -326,6 +326,7 @@ const ProductDetails = () => {
       </Row>
 
       <Row
+        className="mmukbd"
         justify="center"
         style={{
           paddingBottom: "62px",

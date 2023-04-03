@@ -9,9 +9,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Address from "../section/checkout/address";
 import {
+  billAddress,
   couponService,
   initiatePayment,
+  orderMailer,
   orderService,
+  shipAddress,
 } from "../services/apiServices/apiService";
 import { HOME, ORDER } from "../constants/route-path";
 import { EMPTY_CART } from "../actions/cart-action";
@@ -36,7 +39,7 @@ const CheckoutPage = () => {
 
   const [messageApi, contextHolder] = message.useMessage();
 
-  const { userId } = useSelector((e) => e.userReducer);
+  const { userId, userName, email } = useSelector((e) => e.userReducer);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -51,6 +54,10 @@ const CheckoutPage = () => {
   const [paytmrender, setPaytmrender] = useState(1);
 
   const [couponCode, setCouponCode] = useState("");
+
+  const [primaryAdd, setprimaryAdd] = useState({});
+
+  const [shipppingAdd, setShipppingAdd] = useState({});
 
   const [address, setAddress] = useState({
     billingaddress: "",
@@ -80,6 +87,14 @@ const CheckoutPage = () => {
       "https://securegw.paytm.in/merchantpgpui/checkoutjs/merchants/RKiGVE46772965128210.js";
 
     document.body.appendChild(script);
+
+    billAddress(userId).then((e) => {
+      setprimaryAdd(e.data.data[0]);
+    });
+
+    shipAddress(userId).then((e) => {
+      setShipppingAdd(e.data.data[0]);
+    });
   }, []);
 
   //  paytm payment handler----------
@@ -129,10 +144,27 @@ const CheckoutPage = () => {
                 if (e.status === 200) {
                   sessionStorage.removeItem("checkout_details");
 
+                  orderMailer({
+                    orderid: "12345",
+                    email: email,
+                    username: userName,
+                    discount: orderRequest.discount_charge,
+                    subtotal:
+                      orderRequest.total_amount - orderRequest.discount_charge,
+                    total: orderRequest.total_amount,
+                    paymentype: orderRequest.payment_method,
+                    BillingInfo: primaryAdd,
+                    shippinginfo:
+                      address.billingaddress === address.shippingaddress
+                        ? primaryAdd
+                        : shipppingAdd,
+                    product: cartItem,
+                  }).then((e) => e);
+
                   setOrderStatus(true);
                   setTimeout(() => {
-                    Navigate(ORDER);
                     dispatch({ type: EMPTY_CART });
+                    Navigate(ORDER);
                   }, 15000);
                 } else {
                   messageApi.error("Something went wrong ! try again");
@@ -177,11 +209,6 @@ const CheckoutPage = () => {
         total_amount: sum.toString(),
       });
     }
-    console.log(
-      JSON.stringify({
-        customize: cartItem[0].customize,
-      })
-    );
   }, [cartItem, searchParams]);
 
   //  order handler ----------
@@ -223,13 +250,29 @@ const CheckoutPage = () => {
           }).then((e) => {
             count += 1;
             if (count === cartItem.length) {
-              console.log(count);
               if (e.status === 200) {
                 setOrderStatus(true);
-                setTimeout(() => {
-                  Navigate(ORDER);
 
+                orderMailer({
+                  orderid: "12345",
+                  email: email,
+                  username: userName,
+                  discount: orderRequest.discount_charge,
+                  subtotal:
+                    orderRequest.total_amount - orderRequest.discount_charge,
+                  total: orderRequest.total_amount,
+                  paymentype: orderRequest.payment_method,
+                  BillingInfo: primaryAdd,
+                  shippinginfo:
+                    address.billingaddress === address.shippingaddress
+                      ? primaryAdd
+                      : shipppingAdd,
+                  product: cartItem,
+                }).then((e) => e);
+
+                setTimeout(() => {
                   dispatch({ type: EMPTY_CART });
+                  Navigate(ORDER);
                 }, 15000);
               } else {
                 messageApi.error("Something went wrong ! try again");
