@@ -149,36 +149,48 @@ const Index = ({ data, textCls }) => {
           </Stack>
         )}
 
-        <Stack
+        {/* <Stack
           onClick={() => buyNowHandler()}
           sx={StyleCard.quickView}
           className="quick_view"
         >
           BUY NOW
-        </Stack>
+        </Stack> */}
 
         <Stack
           className={"productCard"}
           onClick={() => recentlyViewehandler(data)}
         >
-          <Link
-            target="_blank"
-            to={PRODUCTDETAILS(
-              data.name.replaceAll(" ", "-"),
-              data.id,
-              data.categories.split(",")[0]
-            )}
-          >
-            <h3 onClick={() => recentlyViewehandler(data)} className={textCls}>
-              {data?.name.length > (textCls === "psmall_size" ? 10 : 36)
-                ? data?.name.slice(0, textCls === "psmall_size" ? 20 : 36) +
-                  " " +
-                  "..."
-                : data?.name}
-            </h3>
-          </Link>
+          <Row justify="space-between" align="middle">
+            <Col xxl={16} xl={18} lg={18} md={16} sm={18} xs={16}>
+              <Link
+                target="_blank"
+                to={PRODUCTDETAILS(
+                  data.name.replaceAll(" ", "-"),
+                  data.id,
+                  data.categories.split(",")[0]
+                )}
+              >
+                <h3
+                  onClick={() => recentlyViewehandler(data)}
+                  className={textCls}
+                >
+                  {data?.name.length > (textCls === "psmall_size" ? 10 : 36)
+                    ? data?.name.slice(0, textCls === "psmall_size" ? 20 : 36) +
+                      " " +
+                      "..."
+                    : data?.name}
+                </h3>
+              </Link>
 
-          <p> ₹ {Number(data?.price).toFixed(2)}</p>
+              <p> ₹ {Number(data?.price).toFixed(2)}</p>
+            </Col>
+            <Col xxl={8} xl={6} lg={6} md={8} sm={6} xs={8} align="end">
+              <button onClick={() => setBuyn(true)} className="buy_now_btn">
+                BUY NOW
+              </button>
+            </Col>
+          </Row>
         </Stack>
       </Card>
 
@@ -217,7 +229,7 @@ const Index = ({ data, textCls }) => {
         open={buyn}
         okType="link"
         onCancel={() => setBuyn(false)}
-        width={900}
+        width={400}
         footer={""}
       >
         <BuyNow data={data} setQuick={setBuyn} />
