@@ -23,6 +23,8 @@ const ShopPage = () => {
 
   const [canback, setCanBack] = useState(false);
 
+  const [activeCapsule, setActiveCapsule] = useState(3);
+
   useOnce(() => {
     setLoader(true);
 
@@ -121,6 +123,9 @@ const ShopPage = () => {
           }}
         >
           <Filter
+            state={state}
+            setActiveCapsule={setActiveCapsule}
+            activeCapsule={activeCapsule}
             paramsHandler={paramsHandler}
             searchHandler={searchHandler}
             setSearchState={setSearchState}
@@ -133,7 +138,7 @@ const ShopPage = () => {
           <Row justify="start">
             <Col span={24} style={{ position: "relative" }}>
               {state.length > 0 ? (
-                <ProductListing state={state} />
+                <ProductListing state={state} activeCapsule={activeCapsule} />
               ) : (
                 <div style={{ width: "60%", margin: "auto" }}>
                   <img src={"/noproductfound.png"} alt="no product found" />

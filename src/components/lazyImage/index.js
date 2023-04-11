@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-function Index({ src, alt, placeholder, cardRef, src2 }) {
+function Index({ src, alt, placeholder, cardRef, src2, textCls }) {
   const [imageSrc, setImageSrc] = useState(placeholder);
   const [isVisible, setIsVisible] = useState(false);
   const [loaded, setLoaded] = useState(false);
@@ -85,7 +85,9 @@ function Index({ src, alt, placeholder, cardRef, src2 }) {
               style={
                 isHavetot
                   ? { height: "350px" }
-                  : isShop
+                  : isShop && textCls === "psmall_medium"
+                  ? { height: "400px" }
+                  : isShop && textCls !== "psmall_medium"
                   ? { height: "700px" }
                   : { height: "370px" }
               }

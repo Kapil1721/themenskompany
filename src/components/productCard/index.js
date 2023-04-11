@@ -98,13 +98,20 @@ const Index = ({ data, textCls }) => {
               alt={data.name}
               placeholder={PDC_IMAGE + data?.image}
               cardRef={cardRef}
+              textCls={textCls}
             />
           </Link>
         }
       >
         <Stack
           onClick={() => setOpen(true)}
-          id={textCls === "psmall_size" ? "quickSmall" : "quick"}
+          id={
+            textCls === "psmall_size"
+              ? "quickSmall"
+              : textCls === "plarge_size"
+              ? "quick"
+              : "quick_medium"
+          }
           className="quick_view"
         >
           <img
@@ -117,7 +124,13 @@ const Index = ({ data, textCls }) => {
 
         <Stack
           onClick={() => setQuick(true)}
-          id={textCls === "psmall_size" ? "cartSmall" : "cart"}
+          id={
+            textCls === "psmall_size"
+              ? "cartSmall"
+              : textCls === "plarge_size"
+              ? "cart"
+              : "cart_medium"
+          }
           className="quick_view"
         >
           <img
@@ -137,7 +150,13 @@ const Index = ({ data, textCls }) => {
                 data.name.replaceAll(" ", "-")
               )
             }
-            id={textCls === "psmall_size" ? "CustomiseSmall" : "Customise"}
+            id={
+              textCls === "psmall_size"
+                ? "CustomiseSmall"
+                : textCls === "plarge_size"
+                ? "Customise"
+                : "Customise_medium"
+            }
             className="quick_view"
           >
             <img
@@ -162,7 +181,20 @@ const Index = ({ data, textCls }) => {
           onClick={() => recentlyViewehandler(data)}
         >
           <Row justify="space-between" align="middle">
-            <Col xxl={16} xl={18} lg={18} md={16} sm={18} xs={16}>
+            <Col
+              xxl={16}
+              xl={18}
+              lg={18}
+              md={16}
+              sm={18}
+              xs={16}
+              style={{
+                overflow: "hidden",
+                whiteSpace: "nowrap",
+                textOverflow: "ellipsis",
+                maxWidth: "100%",
+              }}
+            >
               <Link
                 target="_blank"
                 to={PRODUCTDETAILS(
@@ -174,21 +206,24 @@ const Index = ({ data, textCls }) => {
                 <h3
                   onClick={() => recentlyViewehandler(data)}
                   className={textCls}
+                  style={{
+                    overflow: "hidden",
+                    whiteSpace: "nowrap",
+                    textOverflow: "ellipsis",
+                  }}
                 >
-                  {data?.name.length > (textCls === "psmall_size" ? 10 : 36)
-                    ? data?.name.slice(0, textCls === "psmall_size" ? 20 : 36) +
-                      " " +
-                      "..."
-                    : data?.name}
+                  {data?.name}
                 </h3>
               </Link>
 
               <p> ₹ {Number(data?.price).toFixed(2)}</p>
             </Col>
             <Col xxl={8} xl={6} lg={6} md={8} sm={6} xs={8} align="end">
-              <button onClick={() => setBuyn(true)} className="buy_now_btn">
-                BUY NOW
-              </button>
+              {textCls !== "psmall_size" && (
+                <button onClick={() => setBuyn(true)} className="buy_now_btn">
+                  BUY NOW
+                </button>
+              )}
             </Col>
           </Row>
         </Stack>
