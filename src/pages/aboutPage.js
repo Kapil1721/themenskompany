@@ -1,5 +1,5 @@
 import { Col, Row, Breadcrumb } from "antd";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { STATIC_DATA } from "../constants/path-constant";
