@@ -5,7 +5,7 @@ import ProductCard from "../../components/productCard/index";
 
 const ProductListing = ({ state }) => {
   return (
-    <Row justify="start" className="tytryt" gutter={[30, 50]}>
+    <Row justify="start" className="tytryt" gutter={[15, 40]}>
       {state.map((e) => (
         <Col
           xxl={12}

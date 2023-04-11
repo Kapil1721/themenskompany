@@ -1,5 +1,9 @@
 import { LoadingOutlined } from "@ant-design/icons";
 import { Spin } from "antd";
+import NProgress from "nprogress";
+import { useEffect } from "react";
+import "nprogress/nprogress.css";
+
 const antIcon = (
   <LoadingOutlined
     style={{
@@ -11,9 +15,18 @@ const antIcon = (
     spin
   />
 );
-const Spinner = () => (
-  <div id="sipperskhdf">
-    <Spin indicator={antIcon} />
-  </div>
-);
+const Spinner = () => {
+  useEffect(() => {
+    NProgress.start();
+
+    return () => {
+      NProgress.done();
+    };
+  }, []);
+  return (
+    <div id="sipperskhdf">
+      <Spin indicator={antIcon} />
+    </div>
+  );
+};
 export default Spinner;

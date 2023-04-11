@@ -27,6 +27,8 @@ import Popup from "../components/productCard/popup";
 const ProductDetails = () => {
   const { pid, cate, title } = useParams();
 
+  let recentItems = localStorage.getItem("__x77yy");
+
   const dispatch = useDispatch();
 
   const [messageApi, contextHolder] = message.useMessage();
@@ -315,15 +317,17 @@ const ProductDetails = () => {
         </Col>
       </Row>
 
-      <Row justify="center" className="mmukbd">
-        <Col xxl={17} xl={18} lg={18} md={20} sm={22} xs={23}>
-          <Row justify="start" style={{ padding: "10px 0 90px 0" }}>
-            <Col span={24} style={{ position: "relative" }}>
-              <RecentlyViewed />
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+      {recentItems !== null && (
+        <Row justify="center" className="mmukbd">
+          <Col xxl={17} xl={18} lg={18} md={20} sm={22} xs={23}>
+            <Row justify="start" style={{ padding: "10px 0 90px 0" }}>
+              <Col span={24} style={{ position: "relative" }}>
+                <RecentlyViewed />
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      )}
 
       <Row
         className="mmukbd"

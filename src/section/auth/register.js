@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import StyleButton from "../../components/style/button";
 
@@ -30,8 +30,6 @@ const Register = () => {
       ...state,
       [e.target.id]: e.target.value,
     });
-
-    console.log(state);
   };
 
   const submitHandler = () => {
@@ -84,54 +82,65 @@ const Register = () => {
     }
   };
 
+  const toggleForm = () => {
+    const container = document.querySelector(".container");
+    console.log(container);
+    container.classList.toggle("active");
+  };
+
   return (
-    <div className="container_Auth">
-      <div className="head">Register</div>
+    <div className="user signupBx">
       {contextHolder}
-      <div className="innerbox">
-        <div className="dsadsa">
-          <div className="input_box">
-            <label>
-              First name <span>*</span>
-            </label>
-
-            <input onChange={(e) => inputHandler(e)} id="fname" type="text" />
-          </div>
-
-          <div className="input_box">
-            <label>
-              Last name <span>*</span>
-            </label>
-
-            <input onChange={(e) => inputHandler(e)} id="lname" type="text" />
-          </div>
-        </div>
-
-        <div className="input_box">
-          <label>
-            email address <span>*</span>
-          </label>
-
-          <input type="email" onChange={(e) => inputHandler(e)} id="email" />
-        </div>
-
-        <div className="input_box">
-          <label>
-            Password <span>*</span>
-          </label>
-
+      <div className="formBx">
+        <div className="form">
+          <h2>Create an account</h2>
+          <input
+            onChange={(e) => inputHandler(e)}
+            id="fname"
+            type="text"
+            placeholder="First Name"
+          />
+          <input
+            onChange={(e) => inputHandler(e)}
+            id="lname"
+            type="text"
+            placeholder="Last Name"
+          />
+          <input
+            type="email"
+            onChange={(e) => inputHandler(e)}
+            id="email"
+            placeholder="Email Address"
+          />
           <input
             type="password"
             onChange={(e) => inputHandler(e)}
             id="password"
+            placeholder="Create password"
           />
-        </div>
 
-        <div className="button c3edf">
-          <StyleButton onClick={() => submitHandler()} varinat="Contained">
+          <StyleButton
+            sx={{ margin: "10px 0" }}
+            onClick={() => submitHandler()}
+            varinat="Contained"
+          >
             Register
           </StyleButton>
+
+          <p className="signup">
+            Already have an account ?
+            <Link to="#" onClick={() => toggleForm()}>
+              Sign in.
+            </Link>
+          </p>
         </div>
+      </div>
+      <div className="imgBx">
+        <img
+          style={{ opacity: ".82" }}
+          src="https://thetestingserver.com/themenskompany/product/p42_image_5.webp"
+          alt=""
+        />
       </div>
     </div>
   );

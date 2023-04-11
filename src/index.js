@@ -13,11 +13,6 @@ import { HelmetProvider } from "react-helmet-async";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-if (module.hot) module.hot.accept("./routes");
-
-
-console.log("wwww")
-
 root.render(
   <React.StrictMode>
     <Provider store={store}>

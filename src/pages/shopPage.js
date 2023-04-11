@@ -155,13 +155,13 @@ const ShopPage = () => {
 
 export default ShopPage;
 
-const _debounc = (func, timeout = 300) => {
-  let timer;
+// const _debounc = (func, timeout = 300) => {
+//   let timer;
 
-  return (...arg) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      func.apply(this, arg);
-    }, timeout);
-  };
-};
+//   return (...arg) => {
+//     clearTimeout(timer);
+//     timer = setTimeout(() => {
+//       func.apply(this, arg);
+//     }, timeout);
+//   };
+// };

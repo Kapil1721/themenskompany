@@ -47,12 +47,16 @@ const Index = () => {
           },
           1300: {
             slidesPerView: 5,
-            spaceBetween: 40,
+            spaceBetween: 10,
+          },
+          1900: {
+            slidesPerView: 5,
+            spaceBetween: 10,
           },
         }}
       >
         {recentitem !== null &&
-          recentitem?.map((items, index) => (
+          recentitem?.reverse().map((items, index) => (
             <SwiperSlide key={index}>
               <ProductCard data={items} textCls="psmall_size" />
             </SwiperSlide>

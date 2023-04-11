@@ -80,7 +80,7 @@ const Index = ({ data, textCls }) => {
     <>
       <Card
         onClick={() => recentlyViewehandler(data)}
-        style={{ overflow: "hidden" }}
+        style={{ borderRadius: 1 }}
         ref={cardRef}
         className="productcard"
         cover={

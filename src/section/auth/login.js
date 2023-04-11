@@ -53,49 +53,58 @@ const Login = () => {
           });
           navigate(HOME);
         } else if (e.status === 210) {
-          messageApi.error("Worng credentials ");
+          messageApi.error("incorrect email or passwords ");
         }
       });
     }
   };
 
+  const toggleForm = () => {
+    const container = document.querySelector(".container");
+    container.classList.toggle("active");
+  };
+
   return (
-    <div className="container_Auth">
+    <div className="user signinBx">
       {contextHolder}
-      <div className="head">Login</div>
+      <div className="imgBx">
+        <img
+          style={{ opacity: "0.62" }}
+          src="https://thetestingserver.com/themenskompany/product/p1_image_2.jpg"
+          alt=""
+        />
+      </div>
 
-      <div className="innerbox">
-        <div className="input_box">
-          <label>
-            Username or email address <span>*</span>
-          </label>
-          <input type="email" id="email" onChange={(e) => inputHandler(e)} />
-        </div>
-
-        <div className="input_box">
-          <label>
-            Password <span>*</span>
-          </label>
-
+      <div className="formBx">
+        <div className="form">
+          <h2>Sign In</h2>
+          <input
+            type="email"
+            id="email"
+            onChange={(e) => inputHandler(e)}
+            placeholder="Username"
+          />
           <input
             type="password"
             id="password"
+            placeholder="Password"
             onChange={(e) => inputHandler(e)}
           />
-        </div>
 
-        <div>
-          <Checkbox>Remember me</Checkbox>
-        </div>
-
-        <div className="button">
-          <StyleButton varinat="Contained" onClick={() => submitHandler()}>
+          <StyleButton
+            sx={{ margin: "10px 0" }}
+            varinat="Contained"
+            onClick={() => submitHandler()}
+          >
             Login
           </StyleButton>
-        </div>
 
-        <div className="forgot_tetx">
-          <Link to={"#"}>lost Your Password ?</Link>
+          <p className="signup">
+            Don't have an account ?
+            <Link to="#" onClick={() => toggleForm()}>
+              Sign Up.
+            </Link>
+          </p>
         </div>
       </div>
     </div>
