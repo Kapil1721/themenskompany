@@ -2739,6 +2739,72 @@ img.sokoww.ewurkjdsf {
     width: 100px !important;
   }
 }
+@media only screen and (max-width: 840px) {
+  .custom_button_holder .collar {
+    top: 35px;
+    left: 196px;
+    position: absolute;
+  }
+  .custom_button_holder .pocket {
+    top: 115px;
+    left: 239px;
+    position: absolute;
+  }
+  .custom_button_holder .placket {
+    top: 170px;
+    left: 194px;
+    position: absolute;
+  }
+  .custom_button_holder .Buttons {
+    top: 216px;
+    left: 192px;
+    position: absolute;
+  }
+  .custom_button_holder .seleves {
+    top: 310px;
+    left: 260px;
+    width: 150px;
+    position: absolute;
+  }
+  .custom_button_holder .back {
+    top: 376px;
+    left: 242px;
+    position: absolute;
+  }
+}
+@media only screen and (max-width: 820px) {
+  .custom_button_holder .collar {
+    top: 39px;
+    left: 194px;
+    position: absolute;
+  }
+  .custom_button_holder .pocket {
+    top: 118px;
+    left: 228px;
+    position: absolute;
+  }
+  .custom_button_holder .placket {
+    top: 175px;
+    left: 186px;
+    position: absolute;
+  }
+  .custom_button_holder .Buttons {
+    top: 218px;
+    left: 190px;
+    position: absolute;
+  }
+  .custom_button_holder .seleves {
+    top: 306px;
+    left: 252px;
+    width: 150px;
+    position: absolute;
+  }
+  .custom_button_holder .back {
+    top: 365px;
+    left: 238px;
+    position: absolute;
+  }
+}
 
 @media only screen and (max-width: 768px) {
   .hyjiusd_sds {
