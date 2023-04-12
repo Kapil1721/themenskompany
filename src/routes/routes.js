@@ -19,6 +19,7 @@ import {
   SHOP,
   SHPOLICY,
   TRPOLICY,
+  GUESTCHECKOUT,
 } from "../constants/route-path";
 
 const NotFound = React.lazy(() => import("./nowhere"));
@@ -34,6 +35,7 @@ const ProductDetails = React.lazy(() => import("../pages/productDetails"));
 const Checkout = React.lazy(() => import("../pages/checkoutPage"));
 const Contact = React.lazy(() => import("../pages/contact"));
 const Search = React.lazy(() => import("../pages/searchPage"));
+const GuestCheckoutPage = React.lazy(() => import("../pages/GuestCheckout"));
 
 //@ section imports
 
@@ -163,6 +165,13 @@ const configureRoutes = () => {
       path: ORDER,
       title: "home page",
       type: "private",
+    },
+    {
+      element: <GuestCheckoutPage />,
+      exact: true,
+      path: GUESTCHECKOUT,
+      title: "home page",
+      type: "public",
     },
     {
       element: <AccountDetails />,

@@ -22,3 +22,4 @@ export const CAPOLICY = path + "cancellations-returns";
 export const PRPOLICY = path + "privacy-policy";
 export const SHPOLICY = path + "shipping-policy";
 export const TRPOLICY = path + "terms-conditions";
+export const GUESTCHECKOUT = path + "checkout-unreg";
