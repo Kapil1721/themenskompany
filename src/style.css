@@ -3368,10 +3368,16 @@ img.sokoww.ewurkjdsf {
   width: 55%;
   padding: 60px 60px 60px 0px;
   background-color: #fcfaf7;
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
 .guest-checkout-section .guest-checkout-desc {
   width: 45%;
   background-color: #feefdc;
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
 .guest-checkout-section .guest-checkout-form {
   display: flex;
@@ -3405,14 +3411,16 @@ img.sokoww.ewurkjdsf {
   font-size: 16px;
   border-radius: 8px;
   font-weight: 300;
-  padding: 10px 15px;
-  margin: 6px 0;
+  padding: 13px 15px;
+  margin: 11px 0;
+
   /* box-shadow: -4px 9px 25px -6px rgba(0, 0, 0, 0.1); */
 }
 .guest-checkout-form .guest-checkout-form-inner form {
   margin-top: 40px;
 }
-.guest-checkout-form .guest-checkout-form-inner .shipping-area {
+.guest-checkout-form .guest-checkout-form-inner .contact-info,
+.guest-checkout-form .guest-checkout-form-inner .shopping-area {
   margin-top: 20px;
 }
 .guest-checkout-form .guest-checkout-form-inner label {

@@ -23,7 +23,7 @@ const GuestCheckout = () => {
 
             <Row gutter={10}>
               <Col span={24}>
-                <div className="contact-input">
+                <div className="contact-input contact-info">
                   <label>Contact information</label>
                   <input
                     type="email"
@@ -41,7 +41,7 @@ const GuestCheckout = () => {
               </Col>
 
               <Col md={24}>
-                <div className="contact-input">
+                <div className="contact-input shopping-area">
                   <label>Shipping address</label>
                   <select>
                     <option>India</option>
