@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/header";
 
 import Footer from "../components/footer";
-import { AUTH } from "../constants/route-path";
+import { AUTH, GUESTCHECKOUT } from "../constants/route-path";
 
 const PublicRoute = ({ ...rest }) => {
   if (rest.path === AUTH) {
@@ -12,6 +12,8 @@ const PublicRoute = ({ ...rest }) => {
         {rest.element}
       </>
     );
+  } else if (rest.path === GUESTCHECKOUT) {
+    return <>{rest.element}</>;
   } else {
     return (
       <>
