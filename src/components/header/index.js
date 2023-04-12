@@ -101,13 +101,15 @@ const Index = () => {
           </Col>
 
           <Col flex="auto" xxl={1} xl={1} lg={2} md={1} sm={2} xs={2}>
-            <img
-              src={`/images/bull.png`}
-              width="100%"
-              height="100%"
-              alt="bull"
-              className="hiddenHeadr"
-            />
+            <Link to={HOME}>
+              <img
+                src={`/images/logo.png`}
+                width="100%"
+                height="100%"
+                alt="bull"
+                className="hiddenHeadr"
+              />
+            </Link>
 
             <div id="showHeader">
               <Row justify="end">

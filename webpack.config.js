@@ -8,8 +8,6 @@ const TerserWebpackPlugin = require("terser-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 
-const ReactRefreshPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
-
 const BrowserifyZlib = require("browserify-zlib");
 
 const { name: NAME } = require("./package.json");
@@ -93,8 +91,6 @@ module.exports = {
   },
 
   plugins: [
-    !isProd && new ReactRefreshPlugin(),
-
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./public/index.html"),
       favicon: "./public/2022-06-30.png",
