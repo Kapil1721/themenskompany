@@ -271,7 +271,7 @@ button.btnBorder {
   margin-bottom: 10px;
 }
 
-.loaders > div {
+.loaders>div {
   height: 100%;
   width: 100%;
   background-color: #ddd;
@@ -281,7 +281,7 @@ button.btnBorder {
   align-items: center;
 }
 
-.loaders > div > div {
+.loaders>div>div {
   height: 15%;
   width: 15%;
 }
@@ -366,11 +366,11 @@ button.btnContained:focus:not(:active) span::after {
   font-family: "Playfair Display", serif !important;
 }
 
-.hheadin + p {
+.hheadin+p {
   font-size: 16px;
 }
 
-.hheadin + h3 {
+.hheadin+h3 {
   font-size: 16px;
   font-weight: 400;
 }
@@ -671,8 +671,7 @@ button.btnContained:focus:not(:active) span::after {
 }
 
 .filter {
-  filter: invert(88%) sepia(21%) saturate(935%) hue-rotate(186deg)
-    brightness(85%) contrast(97%);
+  filter: invert(88%) sepia(21%) saturate(935%) hue-rotate(186deg) brightness(85%) contrast(97%);
 }
 
 #dashboard_navc .nav_item:hover {
@@ -821,8 +820,7 @@ button.btnContained:focus:not(:active) span::after {
   border-top: none;
 }
 
-.hidden_box_cart
-  .ant-divider.css-dev-only-do-not-override-sk7ap8.ant-divider-horizontal {
+.hidden_box_cart .ant-divider.css-dev-only-do-not-override-sk7ap8.ant-divider-horizontal {
   margin: 17px 0;
 }
 
@@ -939,7 +937,7 @@ button.btnContained:focus:not(:active) span::after {
   margin-top: 20px;
 }
 
-.varianat_List + .ant-divider {
+.varianat_List+.ant-divider {
   margin: 16px 0;
 }
 
@@ -1380,10 +1378,7 @@ section .container.active .signinBx .imgBx {
   color: #2b2b2b !important;
 }
 
-.summary_conatiner
-  .product_tabs
-  .ant-tabs-tab.ant-tabs-tab-active
-  .ant-tabs-tab-btn {
+.summary_conatiner .product_tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
   color: #707070 !important;
 }
 
@@ -1514,6 +1509,81 @@ textarea {
   font-size: 34px;
   font-weight: 400;
   letter-spacing: 1px;
+}
+
+
+.gcheckout-main {
+  padding: 0 60px;
+}
+
+.gcheckout-main button {
+  cursor: pointer;
+  border: 0;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 15px;
+  position: relative;
+  overflow: hidden;
+  background: #373737;
+  color: white;
+  width: 100%;
+}
+
+.gcheckout-main .product-info {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.gcheckout-main .product-de {
+  font-size: 12px;
+  font-weight: 400;
+
+}
+
+.gcheckout-main input {
+  width: 100%;
+  border: 1px solid #8c8c8c;
+  outline: none;
+  font-size: 16px;
+  border-radius: 8px;
+  font-weight: 300;
+  padding: 13px 15px;
+}
+
+.gcheckout-pimge {
+  width: 80%;
+  overflow: hidden;
+  border: 1px solid;
+  border-radius: 5px;
+  height: 70px;
+}
+
+.gcheckout-sum {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gcheckout-sum .title {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.gcheckout-sum .amt {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.gcheckout-sum .title-bld {
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.gcheckout-sum .amt-blder {
+  font-size: 22px;
+  font-weight: 500;
 }
 
 .conatc-ytrn {
@@ -2740,66 +2810,78 @@ img.sokoww.ewurkjdsf {
     width: 100px !important;
   }
 }
+
 @media only screen and (max-width: 840px) {
   .custom_button_holder .collar {
     top: 35px;
     left: 196px;
     position: absolute;
   }
+
   .custom_button_holder .pocket {
     top: 115px;
     left: 239px;
     position: absolute;
   }
+
   .custom_button_holder .placket {
     top: 170px;
     left: 194px;
     position: absolute;
   }
+
   .custom_button_holder .Buttons {
     top: 216px;
     left: 192px;
     position: absolute;
   }
+
   .custom_button_holder .seleves {
     top: 310px;
     left: 260px;
     width: 150px;
     position: absolute;
   }
+
   .custom_button_holder .back {
     top: 376px;
     left: 242px;
     position: absolute;
   }
 }
+
 @media only screen and (max-width: 820px) {
   .custom_button_holder .collar {
     top: 39px;
     left: 194px;
     position: absolute;
   }
+
   .custom_button_holder .pocket {
     top: 118px;
     left: 228px;
     position: absolute;
   }
+
   .custom_button_holder .placket {
     top: 175px;
     left: 186px;
     position: absolute;
   }
+
   .custom_button_holder .Buttons {
     top: 218px;
     left: 190px;
     position: absolute;
   }
+
   .custom_button_holder .seleves {
     top: 306px;
     left: 252px;
     width: 150px;
     position: absolute;
   }
+
   .custom_button_holder .back {
     top: 365px;
     left: 238px;
@@ -3361,9 +3443,11 @@ img.sokoww.ewurkjdsf {
   color: #fff;
   width: 114px;
 }
+
 .guest-checkout-section {
   display: flex;
 }
+
 .guest-checkout-section .guest-checkout-form {
   width: 55%;
   padding: 60px 60px 60px 0px;
@@ -3372,6 +3456,7 @@ img.sokoww.ewurkjdsf {
   display: flex;
   align-items: center;
 }
+
 .guest-checkout-section .guest-checkout-desc {
   width: 45%;
   background-color: #feefdc;
@@ -3379,10 +3464,12 @@ img.sokoww.ewurkjdsf {
   display: flex;
   align-items: center;
 }
+
 .guest-checkout-section .guest-checkout-form {
   display: flex;
   justify-content: end;
 }
+
 .guest-checkout-section .guest-checkout-form .guest-checkout-form-inner {
   width: 60%;
 }
@@ -3391,18 +3478,22 @@ img.sokoww.ewurkjdsf {
   width: 220px;
   margin-bottom: 20px;
 }
+
 .guest-checkout-form .form-header ul {
   display: flex;
   margin-top: 10px;
 }
+
 .guest-checkout-form .guest-checkout-form-inner .check-box {
   display: flex;
   align-items: center;
 }
+
 .guest-checkout-form .guest-checkout-form-inner .check-box input {
   width: auto !important;
   margin-right: 5px;
 }
+
 .guest-checkout-form .guest-checkout-form-inner select,
 .guest-checkout-form .guest-checkout-form-inner input {
   width: 100%;
@@ -3416,26 +3507,33 @@ img.sokoww.ewurkjdsf {
 
   /* box-shadow: -4px 9px 25px -6px rgba(0, 0, 0, 0.1); */
 }
+
 .guest-checkout-form .guest-checkout-form-inner form {
   margin-top: 40px;
 }
+
 .guest-checkout-form .guest-checkout-form-inner .contact-info,
 .guest-checkout-form .guest-checkout-form-inner .shopping-area {
   margin-top: 20px;
 }
+
 .guest-checkout-form .guest-checkout-form-inner label {
   font-size: 19px;
 }
+
 .guest-checkout-form .guest-checkout-form-inner .shipping-btn {
   margin-top: 20px;
 }
+
 .guest-checkout-form .guest-checkout-form-inner form .email {
   margin-top: 15px;
 }
+
 .contact-info label {
   display: flex;
   justify-content: space-between;
 }
+
 .contact-info label span:nth-child(2) {
   font-size: 14px;
 }
