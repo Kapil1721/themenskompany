@@ -14,12 +14,12 @@ const OrderDetail = () => {
           </div>
         </Col>
 
-        <Col sm={17}>
+        <Col sm={15}>
           <div className="product-info">Cobalt Check</div>
           <div className="product-de">Navy / XXL / Casual Slim</div>
         </Col>
 
-        <Col sm={3}>
+        <Col sm={4}>
           <div className="product-info">₹ 4,490.00</div>
         </Col>
 
