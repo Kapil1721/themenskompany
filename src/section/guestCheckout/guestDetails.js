@@ -6,7 +6,12 @@ const GuestDetails = ({ setState }) => {
     <>
       <Col span={24}>
         <div className="contact-input contact-info">
-          <label>Contact information</label>
+          <label>
+            <span>Contact information</span>
+            <span>
+              Already have an account? <a href="###">Log in</a>
+            </span>
+          </label>
           <input
             type="email"
             id="email"

@@ -3432,3 +3432,10 @@ img.sokoww.ewurkjdsf {
 .guest-checkout-form .guest-checkout-form-inner form .email {
   margin-top: 15px;
 }
+.contact-info label {
+  display: flex;
+  justify-content: space-between;
+}
+.contact-info label span:nth-child(2) {
+  font-size: 14px;
+}
