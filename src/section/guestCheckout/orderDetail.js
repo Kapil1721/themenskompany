@@ -5,8 +5,8 @@ import StyledButton from "../../components/style/button";
 const OrderDetail = () => {
   return (
     <div>
-      <Row>
-        <Col>
+      <Row justify={"space-around"} align="middle">
+        <Col sm={3}>
           <div className="kamlesh singh">
             <img
               src="https://cdn.shopify.com/s/files/1/0618/3183/9957/products/01_63a20998-eb89-46d5-94b7-ac47a2e8a39a_64x64.jpg?v=1680613675"
@@ -15,12 +15,12 @@ const OrderDetail = () => {
           </div>
         </Col>
 
-        <Col>
+        <Col sm={14}>
           <div className="">Cobalt Check</div>
           <div className="">Navy / XXL / Casual Slim</div>
         </Col>
 
-        <Col>
+        <Col sm={3}>
           <div>₹ 4,490.00</div>
         </Col>
 
