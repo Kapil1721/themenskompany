@@ -3,6 +3,7 @@ import { Breadcrumb, Col, Row } from "antd";
 import GuestDetails from "../section/guestCheckout/guestDetails";
 import { useState } from "react";
 import AddInfo from "../section/guestCheckout/addInfo";
+import OrderDetail from "../section/guestCheckout/orderDetail";
 
 const GuestCheckout = () => {
   const [state, setState] = useState(true);
@@ -41,7 +42,9 @@ const GuestCheckout = () => {
             </Row>
           </div>
         </div>
-        <div className="guest-checkout-desc"></div>
+        <div className="guest-checkout-desc">
+          <OrderDetail />
+        </div>
       </div>
     </div>
   );
