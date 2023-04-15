@@ -5,6 +5,7 @@ import GuestDetails from "../section/guestCheckout/guestDetails";
 import { useState } from "react";
 import AddInfo from "../section/guestCheckout/addInfo";
 import OrderDetail from "../section/guestCheckout/orderDetail";
+import { Icon } from "@iconify/react";
 
 const GuestCheckout = () => {
   const [state, setState] = useState(true);
