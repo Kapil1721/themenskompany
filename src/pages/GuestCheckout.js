@@ -34,8 +34,6 @@ const GuestCheckout = () => {
     if (JSON.parse(localStorage.getItem("THBD43Sdfs324"))) {
       setData(JSON.parse(localStorage.getItem("THBD43Sdfs324")));
     }
-
-    return () => setData();
   }, []);
 
   const saveInfoHandler = () => {
@@ -57,8 +55,11 @@ const GuestCheckout = () => {
   };
 
   return (
-    <div>
-      <div className="guest-checkout-section">
+    <>
+      <div
+        className="guest-checkout-section"
+        style={state ? { height: "100vh" } : { height: "100%" }}
+      >
         <div className="guest-checkout-form">
           <div className="guest-checkout-form-inner">
             <div className="form-header">
@@ -92,7 +93,7 @@ const GuestCheckout = () => {
           <OrderDetail />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

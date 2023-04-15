@@ -84,7 +84,7 @@ const AddInfo = ({ setState }) => {
             key={2}
           >
             <div className="panel-desc">
-              <Row>
+              <Row gutter={10}>
                 <Col md={24}>
                   <div className="contact-input shopping-area">
                     <select>
@@ -93,7 +93,7 @@ const AddInfo = ({ setState }) => {
                   </div>
                 </Col>
 
-                <Col md={11}>
+                <Col md={12}>
                   <div className="contact-input">
                     <input type="text" id="fname" placeholder="First Name" />
                   </div>
@@ -141,13 +141,6 @@ const AddInfo = ({ setState }) => {
                 <Col md={24}>
                   <div className="contact-input">
                     <input type="number" id="phone" placeholder="Phone" />
-                  </div>
-
-                  <div className="check-box">
-                    <input type="checkbox" id="check" />
-                    <span>
-                      Keep me updated on the latest launches & offers.
-                    </span>
                   </div>
                 </Col>
               </Row>
