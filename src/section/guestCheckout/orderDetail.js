@@ -1,29 +1,49 @@
-import { Col, Row } from "antd";
-import React from "react";
+import { Col, Divider, Row } from "antd";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { PDC_IMAGE } from "../../constants/path-constant";
 
 const OrderDetail = () => {
+  // @ts-ignore
+  const { cartItem } = useSelector((e) => e.cartReducer);
+  const [state, setstate] = useState(0);
+
+  useEffect(() => {
+    let sum = 0;
+    cartItem.forEach((e) => {
+      sum += Number(e.totalPrice);
+    });
+
+    setstate(sum);
+  }, []);
+
   return (
     <div className="gcheckout-main">
       <Row justify="space-between" align="middle" gutter={[0, 20]}>
-        <Col sm={3}>
-          <div className="gcheckout-pimge">
-            <img
-              src="https://cdn.shopify.com/s/files/1/0618/3183/9957/products/01_63a20998-eb89-46d5-94b7-ac47a2e8a39a_64x64.jpg?v=1680613675"
-              alt=""
-            />
-          </div>
-        </Col>
+        {cartItem.map((e) => (
+          <>
+            <Col sm={3}>
+              <div className="gcheckout-pimge">
+                <img src={PDC_IMAGE + e.image} alt={e.image} />
+              </div>
+            </Col>
 
-        <Col sm={15}>
-          <div className="product-info">Cobalt Check</div>
-          <div className="product-de">Navy / XXL / Casual Slim</div>
-        </Col>
+            <Col sm={15}>
+              <div className="product-info">{e.name}</div>
+              <div className="product-de">
+                {e.size} / {e.quantity}
+              </div>
+            </Col>
 
-        <Col sm={4}>
-          <div className="product-info">₹ 4,490.00</div>
-        </Col>
+            <Col sm={4}>
+              <div className="product-info">₹ {Number(e.price).toFixed(2)}</div>
+            </Col>
+          </>
+        ))}
 
-        <Col xs={24}>
+        <Divider />
+
+        {/* <Col xs={24}>
           <Row justify="space-between">
             <Col lg={18} xs={15}>
               <input type="text" id="Couponcodes" placeholder="Coupon Code" />
@@ -35,12 +55,12 @@ const OrderDetail = () => {
               </button>
             </Col>
           </Row>
-        </Col>
+        </Col> */}
 
         <Col xs={24}>
           <div className="gcheckout-sum">
             <div className="title">Subtotal</div>
-            <div className="amt">₹ 4,490.00</div>
+            <div className="amt">₹ {state}.00</div>
           </div>
 
           <div className="gcheckout-sum">
@@ -50,7 +70,7 @@ const OrderDetail = () => {
 
           <div className="gcheckout-sum">
             <div className="title-bld">Total</div>
-            <div className="amt-blder">₹ 4,490.00</div>
+            <div className="amt-blder">₹ {state}.00</div>
           </div>
         </Col>
       </Row>

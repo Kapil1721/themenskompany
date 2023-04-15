@@ -1,7 +1,7 @@
 import React from "react";
 import { Col } from "antd";
 
-const GuestDetails = ({ setState }) => {
+const GuestDetails = ({ adddressDatahandler, data, saveInfoHandler }) => {
   return (
     <>
       <Col span={24}>
@@ -12,16 +12,17 @@ const GuestDetails = ({ setState }) => {
               Already have an account? <a href="###">Log in</a>
             </span>
           </label>
+
           <input
             type="email"
             id="email"
+            value={data.email}
             placeholder="Email"
             className="email"
+            pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+            onChange={(e) => adddressDatahandler(e)}
+            required
           />
-          <div className="check-box">
-            <input type="checkbox" id="check" />
-            <span>Keep me updated on the latest launches & offers.</span>
-          </div>
         </div>
       </Col>
 
@@ -36,58 +37,108 @@ const GuestDetails = ({ setState }) => {
 
       <Col md={12}>
         <div className="contact-input">
-          <input type="text" id="fname" placeholder="First Name" />
+          <input
+            value={data.fname}
+            type="text"
+            id="fname"
+            onChange={(e) => adddressDatahandler(e)}
+            placeholder="First Name"
+          />
         </div>
       </Col>
 
       <Col md={12}>
         <div className="contact-input">
-          <input type="text" id="lname" placeholder="Last Name" />
+          <input
+            type="text"
+            value={data.lname}
+            id="lname"
+            onChange={(e) => adddressDatahandler(e)}
+            placeholder="Last Name"
+          />
         </div>
       </Col>
+
       <Col md={24}>
         <div className="contact-input">
-          <input type="text" id="address" placeholder="Address" />
+          <input
+            type="text"
+            value={data.address}
+            onChange={(e) => adddressDatahandler(e)}
+            id="address"
+            placeholder="Address"
+          />
         </div>
       </Col>
+
       <Col md={24}>
         <div className="contact-input">
-          <input type="text" id="" placeholder="Apartment, suite, etc." />
-        </div>
-      </Col>
-      <Col md={8}>
-        <div className="contact-input">
-          <input type="text" id="city" placeholder="City" />
+          <input
+            type="text"
+            value={data.building}
+            onChange={(e) => adddressDatahandler(e)}
+            id="building"
+            placeholder="Apartment, suite, etc."
+          />
         </div>
       </Col>
 
       <Col md={8}>
         <div className="contact-input">
-          <select>
-            <option>Delhi</option>
+          <input
+            value={data.city}
+            type="text"
+            onChange={(e) => adddressDatahandler(e)}
+            id="city"
+            placeholder="City"
+          />
+        </div>
+      </Col>
+
+      <Col md={8}>
+        <div className="contact-input">
+          <select
+            onChange={(e) => adddressDatahandler(e)}
+            id="state"
+            value={data.state}
+            placeholder="state"
+          >
+            <option value={""}>state</option>
+            <option value="delhi">Delhi</option>
           </select>
         </div>
       </Col>
 
       <Col md={8}>
         <div className="contact-input">
-          <input type="number" id="pincode" placeholder="Pin Code" />
+          <input
+            onChange={(e) => adddressDatahandler(e)}
+            type="number"
+            value={data.pincode}
+            id="pincode"
+            placeholder="Pin Code"
+          />
         </div>
       </Col>
 
       <Col md={24}>
         <div className="contact-input">
-          <input type="number" id="phone" placeholder="Phone" />
+          <input
+            value={data.phone}
+            type="number"
+            onChange={(e) => adddressDatahandler(e)}
+            id="phone"
+            placeholder="Phone"
+            pattern="[789][0-9]{9}"
+          />
         </div>
-        <div className="check-box">
-          <input type="checkbox" id="check" />
-          <span>Keep me updated on the latest launches & offers.</span>
-        </div>
+
+        <div className="redText">Please Enter the required fields *</div>
       </Col>
 
       <Col md={8}>
         <button
-          onClick={() => setState(false)}
+          onClick={() => saveInfoHandler()}
           className="btnContained"
           style={{ cursor: "pointer" }}
         >

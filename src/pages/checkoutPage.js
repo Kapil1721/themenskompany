@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useCallback, useState, use } from "react";
 
 import { Col, Row, Divider, Radio, Space, message, Result, Tag } from "antd";

@@ -1,4 +1,5 @@
-import { Col, Row, Pagination, message, Spin } from "antd";
+// @ts-nocheck
+import { Col, Row, message, Spin } from "antd";
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useSearchParams } from "react-router-dom";
@@ -24,6 +25,10 @@ const ShopPage = () => {
   const [canback, setCanBack] = useState(false);
 
   const [activeCapsule, setActiveCapsule] = useState(3);
+
+  const [priceRange, setPriceRange] = useState([0, 10000]);
+
+  const [len, setLen] = useState(46);
 
   useOnce(() => {
     setLoader(true);
@@ -81,7 +86,11 @@ const ShopPage = () => {
   }, [SearchParams, messageApi]);
 
   const paramsHandler = (cate) => {
-    setSearchParams(`category=${cate.toLowerCase()}`);
+    if (cate.length > 0) {
+      setSearchParams(`category=${cate.join(",").toLowerCase()}`);
+    } else {
+      setSearchParams("");
+    }
   };
 
   const searchHandler = () => {
@@ -129,6 +138,8 @@ const ShopPage = () => {
             paramsHandler={paramsHandler}
             searchHandler={searchHandler}
             setSearchState={setSearchState}
+            setPriceRange={setPriceRange}
+            len={len}
           />
         </Col>
       </Row>
@@ -138,7 +149,12 @@ const ShopPage = () => {
           <Row justify="start">
             <Col span={24} style={{ position: "relative" }}>
               {state.length > 0 ? (
-                <ProductListing state={state} activeCapsule={activeCapsule} />
+                <ProductListing
+                  state={state}
+                  priceRange={priceRange}
+                  activeCapsule={activeCapsule}
+                  setLen={setLen}
+                />
               ) : (
                 <div style={{ width: "60%", margin: "auto" }}>
                   <img src={"/noproductfound.png"} alt="no product found" />
@@ -170,3 +186,19 @@ export default ShopPage;
 //     }, timeout);
 //   };
 // };
+
+// let newArray = [];
+// for (let i = 0; i < array.length; i++) {
+//   let foundMatch = false;
+
+//   for (let j = 0; j < array1.length; j++) {
+//     if (array[i] === array1[j]) {
+//       foundMatch = true;
+//     }
+//   }
+
+//   if (foundMatch) {
+//     newArray.push(array[i]);
+//   }
+// }
+// console.log(newArray);

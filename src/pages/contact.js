@@ -247,3 +247,20 @@ const Contact = () => {
 };
 
 export default Contact;
+
+const array = [1, 2, 3, 4, 5, 6, "is", "was"];
+const array1 = ["is", "was", "some", "random ", "text"];
+
+let normalData = [
+  { category: "one,was" },
+  { category: "is,tow" },
+  { category: "isads,sads" },
+  { category: "is,was" },
+];
+
+let y = normalData.filter((e) => {
+  if (e.category.split(",").includes("is")) {
+    return e;
+  }
+});
+console.log(y);
