@@ -271,7 +271,7 @@ button.btnBorder {
   margin-bottom: 10px;
 }
 
-.loaders > div {
+.loaders>div {
   height: 100%;
   width: 100%;
   background-color: #ddd;
@@ -281,7 +281,7 @@ button.btnBorder {
   align-items: center;
 }
 
-.loaders > div > div {
+.loaders>div>div {
   height: 15%;
   width: 15%;
 }
@@ -366,11 +366,11 @@ button.btnContained:focus:not(:active) span::after {
   font-family: "Playfair Display", serif !important;
 }
 
-.hheadin + p {
+.hheadin+p {
   font-size: 16px;
 }
 
-.hheadin + h3 {
+.hheadin+h3 {
   font-size: 16px;
   font-weight: 400;
 }
@@ -671,8 +671,7 @@ button.btnContained:focus:not(:active) span::after {
 }
 
 .filter {
-  filter: invert(88%) sepia(21%) saturate(935%) hue-rotate(186deg)
-    brightness(85%) contrast(97%);
+  filter: invert(88%) sepia(21%) saturate(935%) hue-rotate(186deg) brightness(85%) contrast(97%);
 }
 
 #dashboard_navc .nav_item:hover {
@@ -821,8 +820,7 @@ button.btnContained:focus:not(:active) span::after {
   border-top: none;
 }
 
-.hidden_box_cart
-  .ant-divider.css-dev-only-do-not-override-sk7ap8.ant-divider-horizontal {
+.hidden_box_cart .ant-divider.css-dev-only-do-not-override-sk7ap8.ant-divider-horizontal {
   margin: 17px 0;
 }
 
@@ -939,7 +937,7 @@ button.btnContained:focus:not(:active) span::after {
   margin-top: 20px;
 }
 
-.varianat_List + .ant-divider {
+.varianat_List+.ant-divider {
   margin: 16px 0;
 }
 
@@ -1351,6 +1349,7 @@ section .container.active .signinBx .imgBx {
   padding: 60px 60px 60px 0px;
   /* height: 100%; */
 }
+
 .guest-checkout-section .guest-checkout-desc .gcheckout-main {
   width: 65%;
 }
@@ -1427,20 +1426,25 @@ section .container.active .signinBx .imgBx {
 .contact-info label span:nth-child(2) {
   font-size: 14px;
 }
+
 .payment-panel {
   width: 100%;
   margin-top: 12px;
 }
+
 .payment-panel svg {
   width: 30%;
 }
+
 .payment-panel .panel-desc {
   width: 100%;
   text-align: center;
 }
+
 .payment-panel p {
   margin-top: 18px;
 }
+
 .return-btn {
   display: flex;
   justify-content: space-between;
@@ -1448,11 +1452,13 @@ section .container.active .signinBx .imgBx {
   margin-top: 30px;
   align-items: center;
 }
+
 .panel-desc input,
 .panel-desc select {
   padding: 9px 15px !important;
   margin: 7px 0 !important;
 }
+
 .payment-top {
   width: 100%;
   padding: 0px 16px;
@@ -1460,10 +1466,12 @@ section .container.active .signinBx .imgBx {
   border-radius: 10px;
   margin-top: 40px;
 }
+
 .payment-top-desc {
   border-bottom: 1px lightgrey solid;
   padding: 15px 0px;
 }
+
 .payment-heading {
   margin-top: 25px;
 }
@@ -1638,10 +1646,7 @@ section .container.active .signinBx .imgBx {
   color: #2b2b2b !important;
 }
 
-.summary_conatiner
-  .product_tabs
-  .ant-tabs-tab.ant-tabs-tab-active
-  .ant-tabs-tab-btn {
+.summary_conatiner .product_tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
   color: #707070 !important;
 }
 
@@ -3317,17 +3322,21 @@ img.sokoww.ewurkjdsf {
     padding: 5px 10px !important;
     width: 90px !important;
   }
+
   .guest-checkout-section {
     display: inherit !important;
     height: auto !important;
   }
+
   .guest-checkout-section .guest-checkout-form {
     width: 100%;
     padding: 26px;
   }
+
   .guest-checkout-section .guest-checkout-form .guest-checkout-form-inner {
     width: 100%;
   }
+
   .guest-checkout-section .guest-checkout-desc {
     width: 100%;
     background-color: #f5f3f3;
@@ -3335,6 +3344,7 @@ img.sokoww.ewurkjdsf {
     padding: 34px 22px 60px 0px;
     /* height: 100%; */
   }
+
   .guest-checkout-section .guest-checkout-desc .gcheckout-main {
     width: 100%;
   }
@@ -3851,9 +3861,11 @@ img.sokoww.ewurkjdsf {
   font-size: 19px;
   margin-bottom: 12px;
 }
+
 .shopping-area select {
   margin-top: 14px !important;
 }
+
 .guest-checkout-form .guest-checkout-form-inner .shipping-btn {
   margin-top: 20px;
 }

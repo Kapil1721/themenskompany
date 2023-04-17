@@ -51,6 +51,7 @@ const GuestCheckout = () => {
           setState(false);
         }
       }
+
       return true;
     });
   };
