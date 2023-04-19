@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 // @ antd imports
 
-import { Row, Col, Badge, Modal } from "antd";
+import { Row, Col, Badge, Modal, Drawer } from "antd";
 
 // @ other imports
 
@@ -11,6 +11,7 @@ import HeaderCarsole from "./components/headerCarsole";
 import Logo from "./components/logo";
 
 import { Icon } from "@iconify/react";
+import { InputNumber } from "antd";
 
 // @rounting import
 
@@ -18,17 +19,20 @@ import { CART, CONTACT, HOME, SEARCH, SHOP } from "../../constants/route-path";
 import { Link, useNavigate } from "react-router-dom";
 import DrawerMenu from "./components/DrawerMenu";
 import { useSelector } from "react-redux";
+import { PDC_IMAGE } from "../../constants/path-constant";
 
 const Index = () => {
   const [open, setOpen] = useState(false);
 
-  const { totalQuantity } = useSelector((e) => e.cartReducer);
+  const { totalQuantity, cartItem } = useSelector((e) => e.cartReducer);
 
   const navigate = useNavigate();
 
   const [searchState, setSearchState] = useState(false);
 
   const [search, setSeatce] = useState("");
+
+  const [count, setCount] = useState(0);
 
   const tyas = document.getElementById("mainsearch")?.value;
 
@@ -145,6 +149,53 @@ const Index = () => {
           onKeyDown={(e) => handleKeyDown(e)}
         />
       </Modal>
+
+      <Drawer title="YOUR BAG" placement="right" open={true} width={380}>
+        <div className="side_cart">
+          {cartItem.map((el, i) => (
+            <div className="side_cart_box" key={i}>
+              <div className="cart-img">
+                <img src={PDC_IMAGE + el.image} />
+              </div>
+              <div className="cart-desc">
+                <h4>{el.name}</h4>
+                <p>{el.size}</p>
+                <h4>₹ {el.price}</h4>
+                <div className="action-btns">
+                  <div className="cancel-icon">
+                    <Icon icon="mdi:cancel-bold" />
+                  </div>
+                  <div class="product-count">
+                    <button
+                      disabled={count === 0 ? true : false}
+                      class="button-count no-active"
+                      onClick={() => setCount((v) => v - 1)}
+                    >
+                      -
+                    </button>
+                    <input
+                      type="text"
+                      readonly
+                      class="number-product"
+                      value={el.quantity}
+                    />
+                    <button
+                      onClick={() => setCount((v) => v + 1)}
+                      class="button-count"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+          <div className="proceed_btns">
+            <button>VIEW CART</button>
+            <button>CHECKOUT</button>
+          </div>
+        </div>
+      </Drawer>
     </>
   );
 };
