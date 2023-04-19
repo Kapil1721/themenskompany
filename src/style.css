@@ -3896,6 +3896,14 @@ img.sokoww.ewurkjdsf {
   margin-top: 30px;
   align-items: center;
 }
+.return-btn span {
+  cursor: pointer;
+}
+.return-btn div span {
+  display: flex;
+  align-items: center;
+  color: rgb(0, 85, 159);
+}
 
 .panel-desc input,
 .panel-desc select {

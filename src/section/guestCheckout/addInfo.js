@@ -6,6 +6,8 @@ import { Col } from "antd";
 import { Row } from "antd";
 import Details from "./component/Details";
 import PaymentPanel from "./component/paymentPanel";
+import { Icon } from "@iconify/react";
+
 const { Panel } = Collapse;
 
 const AddInfo = ({ setState }) => {
@@ -151,7 +153,10 @@ const AddInfo = ({ setState }) => {
 
       <div className="return-btn">
         <div>
-          <span onClick={() => setState(true)}> Return to shipping </span>
+          <span onClick={() => setState(true)}>
+            <Icon icon="material-symbols:arrow-back-ios-new" /> Return to
+            shipping{" "}
+          </span>
         </div>
         <button
           className="btnContained"
