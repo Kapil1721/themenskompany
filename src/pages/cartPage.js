@@ -7,7 +7,7 @@ import { Icon } from "@iconify/react";
 import StyledButton from "../components/style/button";
 import { Link, useNavigate } from "react-router-dom";
 
-import { CHECKOUT, SHOP } from "../constants/route-path";
+import { CHECKOUT, GUESTCHECKOUT, SHOP } from "../constants/route-path";
 import { useDispatch, useSelector } from "react-redux";
 import { PDC_IMAGE } from "../constants/path-constant";
 import {
@@ -110,7 +110,7 @@ const CartPage = () => {
 
   const navigationHandler = () => {
     Navigation({
-      pathname: CHECKOUT,
+      pathname: userId ? CHECKOUT : GUESTCHECKOUT,
       search: `coupon=${couponCodeApplied.state}`,
     });
   };
@@ -284,48 +284,52 @@ const CartPage = () => {
             gutter={[0, 40]}
             style={{ marginTop: "59px", marginBottom: "59px" }}
           >
-            <Col xxl={10} xl={12} lg={11} md={20} sm={22} xs={22}>
-              <div className="ctndsa">
-                <Link style={{ color: "black" }} to={SHOP}>
-                  <Icon
-                    style={{ paddingTop: "7px" }}
-                    fontSize={"20px"}
-                    icon="mdi:arrow-left"
-                  />
-                  <span>Continue Shopping</span>
-                </Link>
-              </div>
+            {userId ? (
+              <Col xxl={10} xl={12} lg={11} md={20} sm={22} xs={22}>
+                <div className="ctndsa">
+                  <Link style={{ color: "black" }} to={SHOP}>
+                    <Icon
+                      style={{ paddingTop: "7px" }}
+                      fontSize={"20px"}
+                      icon="mdi:arrow-left"
+                    />
+                    <span>Continue Shopping</span>
+                  </Link>
+                </div>
 
-              <Row className="thr" justify="start">
-                <Col
-                  xxl={14}
-                  xl={14}
-                  lg={14}
-                  md={15}
-                  sm={15}
-                  xs={15}
-                  style={{ marginTop: "7px" }}
-                >
-                  <input
-                    type="text"
-                    id="Couponcodes"
-                    placeholder="Coupon Code"
-                    onChange={(e) => setCouponCode(e.target.value)}
-                  />
-                </Col>
-
-                <Col xxl={8} xl={8} lg={9} md={9} sm={9} xs={9}>
-                  <StyledButton
-                    onClick={() => CouponHandler()}
-                    sx={{ padding: "13px" }}
-                    disable={couponCodeApplied.state ? "false" : "true"}
-                    varinat={"Contained"}
+                <Row className="thr" justify="start">
+                  <Col
+                    xxl={14}
+                    xl={14}
+                    lg={14}
+                    md={15}
+                    sm={15}
+                    xs={15}
+                    style={{ marginTop: "7px" }}
                   >
-                    Apply Coupon
-                  </StyledButton>
-                </Col>
-              </Row>
-            </Col>
+                    <input
+                      type="text"
+                      id="Couponcodes"
+                      placeholder="Coupon Code"
+                      onChange={(e) => setCouponCode(e.target.value)}
+                    />
+                  </Col>
+
+                  <Col xxl={8} xl={8} lg={9} md={9} sm={9} xs={9}>
+                    <StyledButton
+                      onClick={() => CouponHandler()}
+                      sx={{ padding: "13px" }}
+                      disable={couponCodeApplied.state ? "false" : "true"}
+                      varinat={"Contained"}
+                    >
+                      Apply Coupon
+                    </StyledButton>
+                  </Col>
+                </Row>
+              </Col>
+            ) : (
+              ""
+            )}
 
             <Col xxl={10} xl={12} lg={11} md={20} sm={22} xs={22}>
               <Card

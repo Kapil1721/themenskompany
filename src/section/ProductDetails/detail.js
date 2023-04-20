@@ -7,7 +7,7 @@ import { Icon } from "@iconify/react";
 
 const { Panel } = Collapse;
 
-const Detail = ({ setCustomise, carthandler, setSize, state }) => {
+const Detail = ({ setCustomise, carthandler, setSize, state, size }) => {
   return (
     <div className="summary_conatiner">
       <div className="cname details_meskmpkr">The Men's Kompany</div>
@@ -15,32 +15,24 @@ const Detail = ({ setCustomise, carthandler, setSize, state }) => {
       <div className="Pname detail_heading">{state.name}</div>
 
       <div className="pPrice details_prids">
-        ₹ {Number(state.price).toFixed(2)}{" "}
+        ₹ {Number(state.price).toFixed(2)}
         <span className="details_itsitalk">Incl. of all taxes</span>
       </div>
 
       <Divider />
 
       <div className="psized">
-        <select
-          name="size"
-          className="details_meskmpkr"
-          defaultValue="de"
-          onChange={(e) => setSize(e.target.value)}
-        >
-          <option value="de">choose a size</option>
-          {state?.size?.split(",").map((e) => {
-            return (
-              <option
-                className="details_speceds"
-                value={e.toUpperCase()}
-                key={e}
-              >
-                {e.toUpperCase()}
-              </option>
-            );
-          })}
-        </select>
+        <div class="modal_size_btn dfghjkst">
+          {state?.size?.split(",").map((e, i) => (
+            <button
+              key={i}
+              onClick={() => setSize(e)}
+              className={size.toUpperCase() === e ? "active" : ""}
+            >
+              {e}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div>

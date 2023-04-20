@@ -79,6 +79,9 @@ export const couponService = (id) =>
 export const orderService = (object) =>
   fetch("post", API_PATH + `checkout/order`, { ...object }, {});
 
+export const userNoReg = (object) =>
+  fetch("post", API_PATH + `checkout/otywips`, { ...object }, {});
+
 export const gteOrderService = (id) =>
   fetch("get", API_PATH + `checkout/order?id=${id}`, {}, {});
 

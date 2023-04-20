@@ -5,7 +5,7 @@ import { Radio } from "antd";
 
 const { Panel } = Collapse;
 
-const PaymentPanel = () => {
+const PaymentPanel = ({ setOption, option }) => {
   const [value, setValue] = useState(1);
 
   const onChange = (e) => {
@@ -30,7 +30,13 @@ const PaymentPanel = () => {
         accordion
         className="payment-panel"
         // @ts-ignore
-        onChange={(e) => onChange(e)}
+        onChange={(e) => {
+          onChange(e);
+          setOption({
+            ...option,
+            payment: e,
+          });
+        }}
       >
         <Panel
           id="posada"
@@ -70,7 +76,7 @@ const PaymentPanel = () => {
           key={2}
         >
           <div className="panel-desc">
-            <p>click on “Complete order” to contine cash on delivery methos</p>
+            <p>click on “Complete order” to contine cash on delivery Method</p>
           </div>
         </Panel>
       </Collapse>

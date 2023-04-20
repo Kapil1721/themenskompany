@@ -68,14 +68,6 @@ const Index = ({ data, textCls }) => {
     });
   };
 
-  const buyNowHandler = () => {
-    if (!userId) {
-      navigate(AUTH);
-    } else {
-      setBuyn(true);
-    }
-  };
-
   return (
     <>
       <Card

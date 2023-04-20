@@ -8,7 +8,12 @@ import { useSelector, useDispatch } from "react-redux";
 
 import StyleButton from "../../style/button";
 
-import { CART, DASHBOARD, CHECKOUT } from "../../../constants/route-path";
+import {
+  CART,
+  DASHBOARD,
+  CHECKOUT,
+  GUESTCHECKOUT,
+} from "../../../constants/route-path";
 
 import { DELETE_ITEM } from "../../../actions/cart-action";
 
@@ -16,6 +21,7 @@ import { PDC_IMAGE } from "../../../constants/path-constant";
 
 const NaviagtionPanel = ({ setSearchState }) => {
   const dispatch = useDispatch();
+  const { userId } = useSelector((e) => e.userReducer);
 
   const { totalQuantity, cartItem } = useSelector((e) => e.cartReducer);
 
@@ -117,7 +123,7 @@ const NaviagtionPanel = ({ setSearchState }) => {
                   </Col>
 
                   <Col xxl={12}>
-                    <Link to={CHECKOUT}>
+                    <Link to={userId ? CHECKOUT : GUESTCHECKOUT}>
                       <StyleButton varinat="Contained"> Checkout</StyleButton>
                     </Link>
                   </Col>

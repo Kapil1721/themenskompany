@@ -6,9 +6,17 @@ import { Col } from "antd";
 import { Row } from "antd";
 import Details from "./component/Details";
 import PaymentPanel from "./component/paymentPanel";
+import { state } from "../../constants/_IndianStates";
 const { Panel } = Collapse;
 
-const AddInfo = ({ setState }) => {
+const AddInfo = ({
+  setState,
+  billAdddressHandler,
+  billData,
+  setOption,
+  checkoutHandler,
+  option,
+}) => {
   let details = JSON.parse(localStorage.getItem("THBD43Sdfs324"));
 
   const [value, setValue] = useState(1);
@@ -32,7 +40,7 @@ const AddInfo = ({ setState }) => {
         <p>All transactions are secure and encrypted.</p>
       </div>
 
-      <PaymentPanel />
+      <PaymentPanel setOption={setOption} option={option} />
 
       <div className="payment-heading">
         <h4>Billing address</h4>
@@ -46,7 +54,13 @@ const AddInfo = ({ setState }) => {
       >
         <Collapse
           activeKey={value}
-          onChange={(e) => onChange(e)}
+          onChange={(e) => {
+            onChange(e);
+            setOption({
+              ...option,
+              address: e,
+            });
+          }}
           accordion
           className="payment-panel"
         >
@@ -95,52 +109,99 @@ const AddInfo = ({ setState }) => {
 
                 <Col md={12}>
                   <div className="contact-input">
-                    <input type="text" id="fname" placeholder="First Name" />
+                    <input
+                      type="text"
+                      id="fname"
+                      value={billData.fname}
+                      onChange={(e) => billAdddressHandler(e)}
+                      placeholder="First Name"
+                    />
                   </div>
                 </Col>
 
                 <Col md={12}>
                   <div className="contact-input">
-                    <input type="text" id="lname" placeholder="Last Name" />
-                  </div>
-                </Col>
-                <Col md={24}>
-                  <div className="contact-input">
-                    <input type="text" id="address" placeholder="Address" />
+                    <input
+                      type="text"
+                      id="lname"
+                      value={billData.lname}
+                      onChange={(e) => billAdddressHandler(e)}
+                      placeholder="Last Name"
+                    />
                   </div>
                 </Col>
                 <Col md={24}>
                   <div className="contact-input">
                     <input
                       type="text"
-                      id=""
+                      id="address"
+                      value={billData.address}
+                      onChange={(e) => billAdddressHandler(e)}
+                      placeholder="Address"
+                    />
+                  </div>
+                </Col>
+                <Col md={24}>
+                  <div className="contact-input">
+                    <input
+                      type="text"
+                      id="building"
+                      value={billData.building}
+                      onChange={(e) => billAdddressHandler(e)}
                       placeholder="Apartment, suite, etc."
                     />
                   </div>
                 </Col>
                 <Col md={8}>
                   <div className="contact-input">
-                    <input type="text" id="city" placeholder="City" />
+                    <input
+                      type="text"
+                      id="city"
+                      value={billData.city}
+                      onChange={(e) => billAdddressHandler(e)}
+                      placeholder="City"
+                    />
                   </div>
                 </Col>
 
                 <Col md={8}>
                   <div className="contact-input">
-                    <select>
-                      <option>Delhi</option>
+                    <select
+                      id="state"
+                      value={billData.state}
+                      onChange={(e) => billAdddressHandler(e)}
+                    >
+                      <option value={""}>state</option>
+                      {state.map((item) => (
+                        <option key={item.value} value={item.label}>
+                          {item.label}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </Col>
 
                 <Col md={8}>
                   <div className="contact-input">
-                    <input type="number" id="pincode" placeholder="Pin Code" />
+                    <input
+                      type="number"
+                      id="pincode"
+                      value={billData.pincode}
+                      onChange={(e) => billAdddressHandler(e)}
+                      placeholder="Pin Code"
+                    />
                   </div>
                 </Col>
 
                 <Col md={24}>
                   <div className="contact-input">
-                    <input type="number" id="phone" placeholder="Phone" />
+                    <input
+                      type="number"
+                      id="phone"
+                      value={billData.phone}
+                      onChange={(e) => billAdddressHandler(e)}
+                      placeholder="Phone"
+                    />
                   </div>
                 </Col>
               </Row>
@@ -149,11 +210,18 @@ const AddInfo = ({ setState }) => {
         </Collapse>
       </Radio.Group>
 
+      <div className="redText" style={{ marginTop: "10px" }}>
+        Please Enter the required fields *
+      </div>
+
       <div className="return-btn">
         <div>
-          <span onClick={() => setState(true)}> Return to shipping </span>
+          <span className="spantkdb" onClick={() => setState(true)}>
+            Return to shipping
+          </span>
         </div>
         <button
+          onClick={() => checkoutHandler()}
           className="btnContained"
           style={{
             cursor: "pointer",

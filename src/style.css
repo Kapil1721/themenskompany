@@ -1582,6 +1582,16 @@ section .container.active .signinBx .imgBx {
   font-weight: 400;
 }
 
+.spantkdb {
+  color: black;
+  font-weight: 600;
+  text-decoration: underline;
+  text-transform: uppercase;
+  font-size: 11px;
+  cursor: pointer;
+
+}
+
 .gutton .number {
   width: 80%;
   margin: auto;
@@ -3702,6 +3712,10 @@ img.sokoww.ewurkjdsf {
   margin: 20px 0;
   display: flex;
   justify-content: space-between;
+}
+
+.dfghjkst {
+  margin: 20px 101px 20px 0px;
 }
 
 .modal_size_btn button {

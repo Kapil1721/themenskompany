@@ -108,6 +108,7 @@ module.exports = {
 
     new webpack.ProvidePlugin({
       process: "process/browser",
+      // @ts-ignore
       zlib: BrowserifyZlib,
     }),
 

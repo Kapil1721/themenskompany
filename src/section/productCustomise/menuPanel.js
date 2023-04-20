@@ -17,18 +17,25 @@ const MenuPanel = ({ setCustomise }) => {
   return (
     <>
       <Row justify="space-around">
-        <Col>
-          <Icon
-            fontSize="30px"
-            icon="fluent-mdl2:cancel"
-            cursor="pointer"
+        <Col span={2}>
+          <div
             onClick={() => setCustomise(false)}
-          />
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              cursor: "pointer",
+            }}
+          >
+            <Icon
+              fontSize="20px"
+              icon="ion:chevron-back-outline"
+              cursor="pointer"
+            />
+            <span style={{ fontSize: "15px" }}>Back</span>
+          </div>
         </Col>
 
-        <Col span={7}>
-          <div className="cutom_tetx">CUSTOMISE</div>
-        </Col>
+        <Col span={7}></Col>
 
         <Col xxl={5}>
           <Row justify="space-between">

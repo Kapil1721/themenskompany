@@ -19,7 +19,9 @@ const Details = ({ setState }) => {
         </Col>
 
         <Col md={4}>
-          <span onClick={() => setState(true)}>Change</span>
+          <span className="spantkdb" onClick={() => setState(true)}>
+            Change
+          </span>
         </Col>
       </Row>
 
@@ -36,7 +38,9 @@ const Details = ({ setState }) => {
         </Col>
 
         <Col md={4}>
-          <span onClick={() => setState(true)}>Change</span>
+          <span className="spantkdb" onClick={() => setState(true)}>
+            Change
+          </span>
         </Col>
       </Row>
       <Row className="payment-top-desc" style={{ border: "none" }}>

@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useEffect, useCallback, useState, use } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 
 import { Col, Row, Divider, Radio, Space, message, Result, Tag } from "antd";
 
@@ -146,7 +146,7 @@ const CheckoutPage = () => {
                   sessionStorage.removeItem("checkout_details");
 
                   orderMailer({
-                    orderid: "12345",
+                    orderid: orderRequest.order_id,
                     email: email,
                     username: userName,
                     discount: orderRequest.discount_charge,
@@ -288,7 +288,7 @@ const CheckoutPage = () => {
         );
 
         let response = await initiatePayment({
-          email: "sahilegss@gmail.com",
+          email: email,
           orderid: orderRequest.order_id,
           amount: totalAmount,
         });

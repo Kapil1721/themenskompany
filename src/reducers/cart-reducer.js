@@ -14,6 +14,7 @@ const cartItem = {
 
 const sumItems = (items) => {
   let sum = 0;
+
   items?.forEach(function (item) {
     let calculation = Math.trunc(item.totalPrice);
     sum += calculation;

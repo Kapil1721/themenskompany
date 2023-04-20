@@ -1,12 +1,19 @@
 import { message } from "antd";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { ADD_ITEM } from "../../actions/cart-action";
-import { CHECKOUT } from "../../constants/route-path";
+import {
+  CHECKOUT,
+  GUESTCHECKOUT,
+  PRODUCTDETAILS,
+} from "../../constants/route-path";
+import { PDC_IMAGE } from "../../constants/path-constant";
 
 const BuyNow = ({ data, setQuick }) => {
   const [size, setSize] = useState("xxl");
+
+  const { userId } = useSelector((e) => e.userReducer);
 
   const navigate = useNavigate();
 
@@ -31,7 +38,7 @@ const BuyNow = ({ data, setQuick }) => {
     setTimeout(
       () =>
         navigate({
-          pathname: CHECKOUT,
+          pathname: userId ? CHECKOUT : GUESTCHECKOUT,
           search: "coupon=false",
         }),
       0
@@ -43,16 +50,38 @@ const BuyNow = ({ data, setQuick }) => {
       {contextHolder}
       <div class="modal_img_desc">
         <div class="img">
-          <img
-            src="https://thetestingserver.com/themenskompany/product/p33_image_1.jpg"
-            alt=""
-          />
+          <Link
+            to={PRODUCTDETAILS(
+              data.name.replaceAll(" ", "-"),
+              data.id,
+              data.categories.split(",")[0]
+            )}
+          >
+            <img src={PDC_IMAGE + data?.image} alt="" />
+          </Link>
         </div>
 
         <div class="img_content">
-          <h6>{data?.name.slice(0, 20) + ".."}</h6>
+          <Link
+            to={PRODUCTDETAILS(
+              data.name.replaceAll(" ", "-"),
+              data.id,
+              data.categories.split(",")[0]
+            )}
+          >
+            <h6>{data?.name.slice(0, 20) + ".."}</h6>
+          </Link>
+
           <p>₹ {data?.price}</p>
-          <Link>VIEW DETAILS</Link>
+          <Link
+            to={PRODUCTDETAILS(
+              data.name.replaceAll(" ", "-"),
+              data.id,
+              data.categories.split(",")[0]
+            )}
+          >
+            VIEW DETAILS
+          </Link>
         </div>
       </div>
 

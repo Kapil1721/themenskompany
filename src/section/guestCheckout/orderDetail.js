@@ -2,6 +2,8 @@ import { Col, Divider, Row } from "antd";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { PDC_IMAGE } from "../../constants/path-constant";
+import { Link } from "react-router-dom";
+import { CART } from "../../constants/route-path";
 
 const OrderDetail = () => {
   // @ts-ignore
@@ -40,6 +42,12 @@ const OrderDetail = () => {
             </Col>
           </>
         ))}
+
+        <Col sm={24}>
+          <Link to={CART}>
+            <span className="spantkdb">Edit</span>
+          </Link>
+        </Col>
 
         <Divider />
 

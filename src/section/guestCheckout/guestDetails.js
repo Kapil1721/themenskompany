@@ -1,5 +1,6 @@
 import React from "react";
 import { Col } from "antd";
+import { state } from "../../constants/_IndianStates";
 
 const GuestDetails = ({ adddressDatahandler, data, saveInfoHandler }) => {
   return (
@@ -104,7 +105,11 @@ const GuestDetails = ({ adddressDatahandler, data, saveInfoHandler }) => {
             placeholder="state"
           >
             <option value={""}>state</option>
-            <option value="delhi">Delhi</option>
+            {state.map((item) => (
+              <option key={item.value} value={item.label}>
+                {item.label}
+              </option>
+            ))}
           </select>
         </div>
       </Col>

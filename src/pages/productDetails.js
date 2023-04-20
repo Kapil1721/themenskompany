@@ -39,7 +39,7 @@ const ProductDetails = () => {
 
   const [data, setdata] = useState([]);
 
-  const [size, setSize] = useState("");
+  const [size, setSize] = useState("xxl");
 
   const [loader, setLoader] = useState(true);
 
@@ -259,6 +259,7 @@ const ProductDetails = () => {
                   setSize={setSize}
                   carthandler={carthandler}
                   state={state}
+                  size={size}
                   setCustomise={openCustomiseHandler}
                 />
 
