@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
 
 // @ antd imports
@@ -11,7 +12,6 @@ import HeaderCarsole from "./components/headerCarsole";
 import Logo from "./components/logo";
 
 import { Icon } from "@iconify/react";
-import { InputNumber } from "antd";
 
 // @rounting import
 
@@ -19,12 +19,12 @@ import { CART, CONTACT, HOME, SEARCH, SHOP } from "../../constants/route-path";
 import { Link, useNavigate } from "react-router-dom";
 import DrawerMenu from "./components/DrawerMenu";
 import { useSelector } from "react-redux";
-import { PDC_IMAGE } from "../../constants/path-constant";
+import CartDrawer from "./components/CartDrawer";
 
 const Index = () => {
   const [open, setOpen] = useState(false);
 
-  const { totalQuantity, cartItem } = useSelector((e) => e.cartReducer);
+  const { totalQuantity } = useSelector((e) => e.cartReducer);
 
   const navigate = useNavigate();
 
@@ -32,7 +32,7 @@ const Index = () => {
 
   const [search, setSeatce] = useState("");
 
-  const [count, setCount] = useState(0);
+  const [cartMod, setCartMod] = useState(false);
 
   const tyas = document.getElementById("mainsearch")?.value;
 
@@ -55,7 +55,10 @@ const Index = () => {
     <>
       <Col>
         <Row>
-          <HeaderCarsole setSearchState={setSearchState} />
+          <HeaderCarsole
+            setCartMod={setCartMod}
+            setSearchState={setSearchState}
+          />
         </Row>
 
         <Row className="header_mian" justify="space-between">
@@ -150,51 +153,14 @@ const Index = () => {
         />
       </Modal>
 
-      <Drawer title="YOUR BAG" placement="right" open={true} width={380}>
-        <div className="side_cart">
-          {cartItem.map((el, i) => (
-            <div className="side_cart_box" key={i}>
-              <div className="cart-img">
-                <img src={PDC_IMAGE + el.image} />
-              </div>
-              <div className="cart-desc">
-                <h4>{el.name}</h4>
-                <p>{el.size}</p>
-                <h4>₹ {el.price}</h4>
-                <div className="action-btns">
-                  <div className="cancel-icon">
-                    <Icon icon="mdi:cancel-bold" />
-                  </div>
-                  <div class="product-count">
-                    <button
-                      disabled={count === 0 ? true : false}
-                      class="button-count no-active"
-                      onClick={() => setCount((v) => v - 1)}
-                    >
-                      -
-                    </button>
-                    <input
-                      type="text"
-                      readonly
-                      class="number-product"
-                      value={el.quantity}
-                    />
-                    <button
-                      onClick={() => setCount((v) => v + 1)}
-                      class="button-count"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-          <div className="proceed_btns">
-            <button>VIEW CART</button>
-            <button>CHECKOUT</button>
-          </div>
-        </div>
+      <Drawer
+        title="YOUR BAG"
+        placement="right"
+        open={cartMod || false}
+        onClose={() => setCartMod(false)}
+        width={380}
+      >
+        <CartDrawer setCartMod={setCartMod} />
       </Drawer>
     </>
   );

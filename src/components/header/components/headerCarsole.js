@@ -4,7 +4,7 @@ import React from "react";
 
 import NaviagtionPanel from "./naviagtionPanel";
 
-const HeaderCarsole = ({ setSearchState }) => {
+const HeaderCarsole = ({ setSearchState, setCartMod }) => {
   return (
     <>
       <div
@@ -68,7 +68,10 @@ const HeaderCarsole = ({ setSearchState }) => {
           }}
         >
           <div style={{ width: "38% !important" }} className="heide">
-            <NaviagtionPanel setSearchState={setSearchState} />
+            <NaviagtionPanel
+              setCartMod={setCartMod}
+              setSearchState={setSearchState}
+            />
           </div>
         </div>
       </div>

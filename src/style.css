@@ -4068,3 +4068,31 @@ img.sokoww.ewurkjdsf {
 :disabled {
   background-color: f4f4f4;
 }
+
+.emptybag {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.emptybag .asdsa {
+  width: 40%;
+  margin: auto;
+}
+
+.emptybag span {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+
+.emptybag .asdsa button {
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 6px;
+  margin-top: 10px;
+  border: none;
+}
